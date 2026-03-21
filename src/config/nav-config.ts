@@ -49,6 +49,36 @@ export const navItems: NavItem[] = [
     items: []
   },
   {
+    title: 'Work Force',
+    url: '#', // Placeholder as there is no direct link for the parent
+    icon: 'workspace',
+    isActive: true,
+    items: [
+      {
+        title: 'Profile',
+        url: '/dashboard/profile',
+        icon: 'profile',
+        shortcut: ['m', 'm']
+      },
+      {
+        title: 'Billing',
+        url: '/dashboard/billing',
+        icon: 'billing',
+        shortcut: ['b', 'b'],
+        // Only show billing if in organization context
+        access: { requireOrg: true }
+        // Alternative: require billing management permission
+        // access: { requireOrg: true, permission: 'org:manage:billing' }
+      },
+      {
+        title: 'Login',
+        shortcut: ['l', 'l'],
+        url: '/',
+        icon: 'login'
+      }
+    ]
+  },
+  {
     title: 'Teams',
     url: '/dashboard/workspaces/team',
     icon: 'teams',
