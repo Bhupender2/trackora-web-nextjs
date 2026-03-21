@@ -55,14 +55,14 @@ export const navItems: NavItem[] = [
     isActive: true,
     items: [
       {
-        title: 'Profile',
-        url: '/dashboard/profile',
+        title: 'Employee',
+        url: '/dashboard/employee',
         icon: 'profile',
         shortcut: ['m', 'm']
       },
       {
-        title: 'Billing',
-        url: '/dashboard/billing',
+        title: 'Department',
+        url: '/dashboard/department',
         icon: 'billing',
         shortcut: ['b', 'b'],
         // Only show billing if in organization context
@@ -71,9 +71,29 @@ export const navItems: NavItem[] = [
         // access: { requireOrg: true, permission: 'org:manage:billing' }
       },
       {
-        title: 'Login',
+        title: 'Designation',
+        url: '/dashboard/designation',
+        icon: 'billing',
+        shortcut: ['b', 'b'],
+        // Only show billing if in organization context
+        access: { requireOrg: true }
+        // Alternative: require billing management permission
+        // access: { requireOrg: true, permission: 'org:manage:billing' }
+      },
+      {
+        title: 'Attendance Permission',
+        url: '/dashboard/attendancepermission',
+        icon: 'billing',
+        shortcut: ['b', 'b'],
+        // Only show billing if in organization context
+        access: { requireOrg: true }
+        // Alternative: require billing management permission
+        // access: { requireOrg: true, permission: 'org:manage:billing' }
+      },
+      {
+        title: 'Manage Branch',
         shortcut: ['l', 'l'],
-        url: '/',
+        url: '/dashboard/manageBranch',
         icon: 'login'
       }
     ]
