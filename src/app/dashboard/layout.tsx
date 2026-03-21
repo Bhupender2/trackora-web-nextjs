@@ -31,7 +31,7 @@ export default async function DashboardLayout({
           <AppSidebar />
           <SidebarInset>
             <Header />
-            {/* page main content */}
+            {/* page main content starts */}
             {children}
             {/* page main content ends */}
           </SidebarInset>
