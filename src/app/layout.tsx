@@ -66,7 +66,7 @@ export default async function RootLayout({
           >
             <Providers activeThemeValue={themeToApply}>
               <Toaster />
-              {children}
+              <NuqsAdapter>{children}</NuqsAdapter>
             </Providers>
           </ThemeProvider>
         </NuqsAdapter>
