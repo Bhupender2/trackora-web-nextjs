@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import { DayPicker } from 'react-day-picker';
 import type { ComponentProps } from 'react';
 
@@ -65,8 +64,8 @@ function Calendar({
         ...classNames
       }}
       components={{
-        IconLeft: LeftIcon,
-        IconRight: RightIcon
+        Chevron: ({ orientation }) =>
+          orientation === 'left' ? <LeftIcon /> : <RightIcon />
       }}
       {...props}
     />

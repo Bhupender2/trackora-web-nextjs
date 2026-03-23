@@ -1,4 +1,4 @@
-import type { DataTableConfig } from '@/components/data-table/data-table';
+import type { DataTableConfig } from '@/config/data-table';
 import type { FilterItemSchema } from '@/lib/parsers';
 import type { ColumnSort, Row, RowData } from '@tanstack/react-table';
 
@@ -12,6 +12,14 @@ declare module '@tanstack/react-table' {
     range?: [number, number];
     unit?: string;
     icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  }
+
+  interface TableMeta<TData extends RowData> {
+    queryKeys?: {
+      filters?: string;
+      joinOperator?: string;
+      sortBy?: string;
+    };
   }
 }
 

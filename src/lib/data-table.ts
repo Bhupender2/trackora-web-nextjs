@@ -2,7 +2,7 @@ import type {
   ExtendedColumnFilter,
   FilterOperator,
   FilterVariant
-} from '@/components/data-table/data-table';
+} from '@/types/data-table';
 import type { Column } from '@tanstack/react-table';
 
 import { dataTableConfig } from '@/config/data-table';
