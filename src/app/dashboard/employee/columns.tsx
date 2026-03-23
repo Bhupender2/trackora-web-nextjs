@@ -70,7 +70,8 @@ export const columns: ColumnDef<Employee>[] = [
     accessorKey: 'department',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} label='Department' />
-    )
+    ),
+    enableSorting: true // adding this
   },
   {
     id: 'designation',
