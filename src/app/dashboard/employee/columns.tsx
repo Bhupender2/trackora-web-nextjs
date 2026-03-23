@@ -52,7 +52,8 @@ export const columns: ColumnDef<Employee>[] = [
     accessorKey: 'empId',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} label='Emp Id' />
-    )
+    ),
+    enableSorting: true // adding this
   },
   {
     id: 'name',
@@ -60,6 +61,7 @@ export const columns: ColumnDef<Employee>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} label='Name' />
     ),
+    enableSorting: true, // adding this
     meta: { label: 'Name', variant: 'text' },
     enableColumnFilter: true
   },
@@ -82,7 +84,8 @@ export const columns: ColumnDef<Employee>[] = [
     accessorKey: 'dateOfJoining',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} label='Date Of Joining' />
-    )
+    ),
+    enableSorting: true // adding this
   },
   {
     id: 'masterBranch',

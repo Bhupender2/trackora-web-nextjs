@@ -143,7 +143,14 @@ const data: Employee[] = [
 ];
 
 export default function EmployeePage() {
-  const { table } = useDataTable({ data, columns, pageCount: 1 });
+  const { table } = useDataTable({
+    data,
+    columns,
+    pageCount: 1,
+    initialState: {
+      sorting: [{ id: 'name', desc: false }] // 👈 default sort
+    }
+  });
 
   return (
     <PageContainer>
