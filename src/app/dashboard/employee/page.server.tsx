@@ -1,22 +1,13 @@
 'use client';
 
-import * as React from 'react';
 import PageContainer from '@/components/layout/page-container';
 import { DataTable } from '@/components/data-table/data-table';
-import { Input } from '@/components/ui/input';
+import { DataTableToolbar } from '@/components/data-table/data-table-toolbar';
+import { useDataTable } from '@/hooks/use-data-table';
+import { columns, type Employee } from './columns';
 import { DataTableAdvancedToolbar } from '@/components/data-table/data-table-advanced-toolbar';
 import { DataTableFilterList } from '@/components/data-table/data-table-filter-list';
 import { DataTableSortList } from '@/components/data-table/data-table-sort-list';
-import { columns, type Employee } from './columns';
-import {
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
-  type SortingState,
-  type ColumnFiltersState
-} from '@tanstack/react-table';
 
 const data: Employee[] = [
   {
@@ -152,26 +143,12 @@ const data: Employee[] = [
 ];
 
 export default function EmployeePage() {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
-  const [globalFilter, setGlobalFilter] = React.useState('');
-
-  const table = useReactTable({
+  const { table } = useDataTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    onGlobalFilterChange: setGlobalFilter, // 👈 add karo
-    state: {
-      sorting,
-      columnFilters,
-      globalFilter // 👈 add karo
+    pageCount: 1,
+    initialState: {
+      sorting: [{ id: 'name', desc: false }] // 👈 default sort
     }
   });
 
@@ -179,12 +156,6 @@ export default function EmployeePage() {
     <PageContainer>
       <DataTable table={table}>
         <DataTableAdvancedToolbar table={table}>
-          <Input
-            placeholder='Search employees...'
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-            className='h-8 w-48'
-          />
           <DataTableFilterList table={table} />
           <DataTableSortList table={table} />
         </DataTableAdvancedToolbar>
